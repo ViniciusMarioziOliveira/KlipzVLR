@@ -18,7 +18,7 @@
       nick: 'meuPATO',
       name: 'Julio',
       img: 'img/julio.jpg',
-      role: 'Duelista',
+      role: 'Main Chamber',
       abilities: [
         ['C', 'Quack Sônico', 'Revela os bugs inimigos num raio de 20 metros.'],
         ['Q', 'Patada', 'Empurra o deploy direto pra produção.'],
@@ -30,7 +30,7 @@
       nick: 'dkT1',
       name: 'Vini',
       img: 'img/vini.jpg',
-      role: 'Sentinela',
+      role: 'Main Neon e Hush',
       abilities: [
         ['C', 'Óculos Táticos', 'Enxerga 1 pixel desalinhado no CSS a qualquer distância.'],
         ['Q', 'Debug Preciso', 'One tap no erro antes dele virar issue.'],
