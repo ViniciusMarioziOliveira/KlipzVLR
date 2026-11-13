@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar · KlipzVLR</title>
+  <meta name="description" content="Entre ou crie sua conta no KlipzVLR para postar seus clipes de Valorant.">
+  <meta name="theme-color" content="#0f1923">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="entrar">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header id="topbar" class="topbar"></header>
+
+  <main id="conteudo" class="auth">
+    <section class="auth__panel" aria-labelledby="auth-title">
+      <div class="auth__box">
+        <span class="eyebrow">Acesso ao servidor</span>
+        <h1 class="auth__title" id="auth-title">Entrar</h1>
+
+        <div class="auth__notice" id="auth-notice" role="status" hidden></div>
+
+        <div class="tabs" role="tablist" aria-label="Entrar ou criar conta">
+          <button type="button" role="tab" id="tab-login" aria-controls="form-login" aria-selected="true">Entrar</button>
+          <button type="button" role="tab" id="tab-signup" aria-controls="form-signup" aria-selected="false" tabindex="-1">Criar conta</button>
+        </div>
+
+        <!-- LOGIN -->
+        <form class="auth__form" id="form-login" role="tabpanel" aria-labelledby="tab-login" novalidate>
+          <label class="field">
+            <span class="field__label">E-mail</span>
+            <input class="input" type="email" name="email" autocomplete="email" inputmode="email" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Senha</span>
+            <span class="pw">
+              <input class="input" type="password" name="password" autocomplete="current-password" required>
+              <button class="pw__toggle" type="button" aria-label="Mostrar senha"></button>
+            </span>
+          </label>
+          <p class="form-msg" role="alert" hidden></p>
+          <button class="vbtn vbtn--block" type="submit"><span class="vbtn__in"><span>Entrar</span></span></button>
+          <p class="auth__switch">Novo por aqui? <button type="button" data-goto="signup">Crie sua conta</button></p>
+        </form>
+
+        <!-- CADASTRO -->
+        <form class="auth__form" id="form-signup" role="tabpanel" aria-labelledby="tab-signup" novalidate hidden>
+          <label class="field">
+            <span class="field__label">Nick</span>
+            <input class="input" type="text" name="username" autocomplete="username" maxlength="20" spellcheck="false" placeholder="ex.: dkT1" required aria-describedby="nick-status">
+            <span class="nick-status" id="nick-status" aria-live="polite"></span>
+          </label>
+          <label class="field">
+            <span class="field__label">E-mail</span>
+            <input class="input" type="email" name="email" autocomplete="email" inputmode="email" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Senha</span>
+            <span class="pw">
+              <input class="input" type="password" name="password" autocomplete="new-password" minlength="8" required aria-describedby="pw-hint">
+              <button class="pw__toggle" type="button" aria-label="Mostrar senha"></button>
+            </span>
+            <span class="field__hint" id="pw-hint">Mínimo de 8 caracteres.</span>
+          </label>
+          <label class="field">
+            <span class="field__label">Confirmar senha</span>
+            <input class="input" type="password" name="confirm" autocomplete="new-password" required>
+          </label>
+          <p class="form-msg" role="alert" hidden></p>
+          <button class="vbtn vbtn--block" type="submit"><span class="vbtn__in"><span>Criar conta</span></span></button>
+          <p class="auth__switch">Já tem conta? <button type="button" data-goto="login">Entrar</button></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="auth__art" aria-hidden="true">
+      <span class="auth__cross"><svg class="icon icon--cross" viewBox="0 0 48 48"><path d="M24 4v13M24 31v13M4 24h13M31 24h13" fill="none" stroke="currentColor" stroke-width="2"/><rect x="22" y="22" width="4" height="4" fill="currentColor"/></svg></span>
+      <p class="auth__big">Pronto<br>pro<br>clutch?</p>
+      <p class="auth__quote">"Ninguém viu aquele ace."<br><b>Ainda.</b></p>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/easter-egg.js"></script>
+  <script src="js/entrar.js"></script>
+</body>
+</html>

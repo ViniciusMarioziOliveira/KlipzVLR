@@ -1,0 +1,15 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.code-workspace
+
+# Dependências (caso um dia usem npm)
+node_modules/
+
+# Segredos: NUNCA suba secret key / service_role
+.env
+.env.*

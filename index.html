@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KlipzVLR · Seu ace merece plateia</title>
+  <meta name="description" content="KlipzVLR: poste e assista clipes de Valorant da comunidade. Aces, clutches, flicks e jogadas absurdas.">
+  <meta name="theme-color" content="#0f1923">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header id="topbar" class="topbar"></header>
+
+  <main id="conteudo">
+    <!-- ── HERO ───────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__bigword">KLIPZ</span>
+        <span class="hero__slab"></span>
+        <span class="hero__vert">Clipes // Valorant // Comunidade</span>
+      </div>
+
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <span class="eyebrow">A casa dos seus melhores lances</span>
+          <h1 class="hero__title" id="hero-title">Klipz<span>VLR</span></h1>
+          <p class="hero__tagline">Seu ace merece plateia.</p>
+          <p class="hero__lead">Suba seus clutches, flicks e jogadas absurdas de Valorant e veja o que a comunidade anda aprontando no servidor.</p>
+          <div class="hero__cta">
+            <a class="vbtn" href="postar.html"><span class="vbtn__in"><span>Postar clipe</span></span></a>
+            <a class="vbtn vbtn--ghost" href="#clipes"><span class="vbtn__in"><span>Ver clipes</span></span></a>
+          </div>
+        </div>
+
+        <aside class="hud-panel" aria-label="Placar e últimas jogadas">
+          <span class="hud-panel__cross" aria-hidden="true"><svg class="icon icon--cross" viewBox="0 0 48 48"><path d="M24 4v13M24 31v13M4 24h13M31 24h13" fill="none" stroke="currentColor" stroke-width="2"/><rect x="22" y="22" width="4" height="4" fill="currentColor"/></svg></span>
+          <div class="hud">
+            <div class="hud__side"><strong class="hud__num" data-stat="clips">00</strong><span>Clipes</span></div>
+            <div class="hud__timer"><strong id="hud-timer">1:40</strong><span>Rodada 13</span></div>
+            <div class="hud__side hud__side--enemy"><strong class="hud__num" data-stat="players">00</strong><span>Agentes</span></div>
+          </div>
+          <div class="killfeed">
+            <div class="killfeed__head"><span>// Últimas jogadas</span><span class="live"><i></i>Ao vivo</span></div>
+            <div class="killfeed__rows" id="killfeed"></div>
+          </div>
+        </aside>
+      </div>
+
+      <a class="hero__scroll" href="#clipes"><span>Role</span><i></i></a>
+    </section>
+
+    <!-- ── FAIXA ──────────────────────────────────────────── -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker">
+        <div class="ticker__track">
+          <span>Ace</span><span>Clutch</span><span>One tap</span><span>1v5</span><span>Flick</span><span>Wallbang</span><span>Thrifty</span><span>Flawless</span><span>Team ace</span><span>Spike plantada</span>
+          <span>Ace</span><span>Clutch</span><span>One tap</span><span>1v5</span><span>Flick</span><span>Wallbang</span><span>Thrifty</span><span>Flawless</span><span>Team ace</span><span>Spike plantada</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FEED ───────────────────────────────────────────── -->
+    <section class="section section--light on-light" id="clipes" aria-labelledby="feed-title">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <span class="eyebrow eyebrow--dark">01 // Feed</span>
+            <h2 class="section__title" id="feed-title">Clipes da comunidade</h2>
+            <span class="feed__count" id="feed-count" aria-live="polite"></span>
+          </div>
+          <a class="vbtn vbtn--dark" href="postar.html"><span class="vbtn__in"><span>Postar o meu</span></span></a>
+        </div>
+
+        <form class="filters" id="filters" role="search" aria-label="Filtrar clipes">
+          <label class="field field--search">
+            <span class="sr-only">Buscar pelo título</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14zM16 16l5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <input class="input" type="search" id="f-search" placeholder="Buscar pelo título..." autocomplete="off">
+          </label>
+          <label class="field"><span class="sr-only">Agente</span><select class="select" id="f-agent"></select></label>
+          <label class="field"><span class="sr-only">Mapa</span><select class="select" id="f-map"></select></label>
+          <label class="field"><span class="sr-only">Tipo de jogada</span><select class="select" id="f-type"></select></label>
+          <button class="filters__clear" type="reset">Limpar</button>
+        </form>
+
+        <div class="grid" id="clip-grid" aria-live="polite"></div>
+
+        <div class="feed__more">
+          <button class="vbtn vbtn--dark" type="button" id="load-more" hidden><span class="vbtn__in"><span>Carregar mais</span></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COMO FUNCIONA ──────────────────────────────────── -->
+    <section class="section steps" aria-labelledby="steps-title">
+      <div class="container">
+        <span class="eyebrow">02 // Como funciona</span>
+        <h2 class="section__title" id="steps-title">Do replay pro feed</h2>
+        <ol class="steps__list">
+          <li class="step">
+            <span class="step__n">01</span>
+            <h3>Crie sua conta</h3>
+            <p>Escolha seu nick e entre no servidor. Leva menos tempo que a fase de compra.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">02</span>
+            <h3>Suba o clipe</h3>
+            <p>Arraste o vídeo (MP4, WEBM, MOV, MKV...) e marque agente, mapa e o tipo da jogada.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">03</span>
+            <h3>Mostre o ace</h3>
+            <p>Seu clipe entra no feed com link próprio pra mandar no grupo do time.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/clips.js"></script>
+  <script src="js/easter-egg.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

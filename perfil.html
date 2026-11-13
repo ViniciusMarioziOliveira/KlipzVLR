@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perfil · KlipzVLR</title>
+  <meta name="description" content="Perfil e clipes de um jogador no KlipzVLR.">
+  <meta name="theme-color" content="#0f1923">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="perfil">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header id="topbar" class="topbar"></header>
+
+  <main id="conteudo">
+    <section class="profile-hero">
+      <span class="profile-hero__word" id="profile-bg-word" aria-hidden="true"></span>
+      <div class="container">
+        <div class="profile-head" id="profile-head">
+          <span class="spinner" aria-hidden="true"></span>
+        </div>
+        <div class="stats" id="stats"></div>
+      </div>
+    </section>
+
+    <section class="section section--light on-light" aria-labelledby="clips-title">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <span class="eyebrow eyebrow--dark">Arsenal</span>
+            <h2 class="section__title" id="clips-title">Clipes</h2>
+          </div>
+          <a class="vbtn vbtn--dark" id="profile-post" href="postar.html" hidden><span class="vbtn__in"><span>Postar clipe</span></span></a>
+        </div>
+        <div class="grid" id="clip-grid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/clips.js"></script>
+  <script src="js/easter-egg.js"></script>
+  <script src="js/perfil.js"></script>
+</body>
+</html>

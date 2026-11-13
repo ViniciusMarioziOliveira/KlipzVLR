@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Postar clipe · KlipzVLR</title>
+  <meta name="description" content="Envie seu clipe de Valorant para o KlipzVLR.">
+  <meta name="theme-color" content="#0f1923">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="postar">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header id="topbar" class="topbar"></header>
+
+  <main id="conteudo">
+    <section class="page-head">
+      <span class="page-head__word" aria-hidden="true">UPLOAD</span>
+      <div class="container">
+        <span class="eyebrow">Nova jogada</span>
+        <h1 class="page-title">Postar clipe</h1>
+        <p class="page-sub">Logado como <b id="upload-who">...</b> · formatos <span data-formats></span> · até <span data-max-mb></span> MB por clipe.</p>
+      </div>
+    </section>
+
+    <section class="container upload-wrap">
+      <div class="gate" id="gate">
+        <span class="spinner" aria-hidden="true"></span>
+        <span>Verificando acesso...</span>
+      </div>
+
+      <form class="upload" id="upload-form" novalidate hidden>
+        <!-- vídeo -->
+        <div class="upload__media">
+          <label class="dropzone corners" id="dropzone" for="f-file">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V5M7 10l5-5 5 5M4 20h16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <strong>Arraste seu clipe aqui</strong>
+            <span>ou <u>clique para escolher o arquivo</u></span>
+            <small><span data-formats></span> · até <span data-max-mb></span> MB</small>
+            <input class="sr-only" type="file" id="f-file" name="file">
+          </label>
+
+          <div class="preview" id="preview" hidden>
+            <video id="preview-video" controls playsinline muted preload="metadata"></video>
+            <div class="preview__bar">
+              <div class="preview__info" id="file-info"></div>
+              <button class="link-btn" type="button" id="change-file">Trocar arquivo</button>
+            </div>
+            <div class="preview__thumb">
+              <div class="thumb-box">
+                <img id="thumb-img" alt="Capa gerada automaticamente a partir do clipe" hidden>
+                <span id="thumb-status">Gerando capa...</span>
+              </div>
+              <p>Capa automática: um frame do começo do clipe vira a miniatura no feed.</p>
+            </div>
+            <p class="warn" id="file-warn" role="status" hidden></p>
+          </div>
+
+          <div class="tips corners">
+            <h2>Dicas pra não dar ruim</h2>
+            <ul>
+              <li><b>MP4 (H.264)</b> toca em qualquer navegador. MKV e MOV podem não tocar em alguns.</li>
+              <li>Clipe passou de <span data-max-mb></span> MB? Corte só a jogada ou comprima no <b>HandBrake</b> (preset "Fast 1080p30").</li>
+              <li>No Medal, Outplayed ou na galeria do Windows (<b>Win + G</b>), exporte só o trecho que importa.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- informações -->
+        <div class="upload__fields">
+          <label class="field">
+            <span class="field__label">Título *</span>
+            <span class="field__count" data-count-for="f-title"></span>
+            <input class="input" type="text" id="f-title" maxlength="80" required placeholder="ex.: ACE de Operator no B da Ascent">
+          </label>
+          <label class="field">
+            <span class="field__label">Descrição</span>
+            <span class="field__count" data-count-for="f-desc"></span>
+            <textarea class="textarea" id="f-desc" maxlength="500" rows="4" placeholder="Conta o contexto: rodada, placar, o que rolou..."></textarea>
+          </label>
+          <div class="field-row">
+            <label class="field">
+              <span class="field__label">Agente</span>
+              <select class="select" id="f-agent"></select>
+            </label>
+            <label class="field">
+              <span class="field__label">Mapa</span>
+              <select class="select" id="f-map"></select>
+            </label>
+          </div>
+          <fieldset class="field">
+            <legend class="field__label">Tipo de jogada</legend>
+            <div class="chips" id="f-type"></div>
+          </fieldset>
+          <button class="vbtn vbtn--block" type="submit" id="submit-btn"><span class="vbtn__in"><span>Publicar clipe</span></span></button>
+          <p class="fine">Ao publicar, você confirma que o clipe é seu e pode ser exibido publicamente no KlipzVLR.</p>
+        </div>
+      </form>
+    </section>
+
+    <!-- overlay de envio -->
+    <div class="plant" id="plant" role="dialog" aria-modal="true" aria-labelledby="plant-label" hidden>
+      <div class="plant__box corners">
+        <svg class="plant__spike" viewBox="0 0 64 80" aria-hidden="true">
+          <path d="M32 3 59 18.5v43L32 77 5 61.5v-43z" fill="none" stroke="currentColor" stroke-width="3"/>
+          <path d="M32 14 50 24.5v31L32 66 14 55.5v-31z" fill="currentColor" opacity=".18"/>
+          <path d="M29 22h6v36h-6z" fill="currentColor"/>
+          <path d="M20 30h4v20h-4zM40 30h4v20h-4z" fill="currentColor" opacity=".55"/>
+        </svg>
+        <p class="plant__label" id="plant-label">Plantando a spike...</p>
+        <p class="plant__pct" id="plant-pct" aria-live="polite">0%</p>
+        <div class="plant__bar"><i id="plant-bar"></i></div>
+        <p class="plant__file" id="plant-file"></p>
+        <p class="plant__msg" id="plant-msg"></p>
+        <div class="plant__actions" id="plant-actions"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/easter-egg.js"></script>
+  <script src="js/postar.js"></script>
+</body>
+</html>
